@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rest-api:
+    build: ./django
+    command: python manage.py migrate
+    ports:
+      - "8000:8000"
+    links:
+      - db:db
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.2
+  db:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: docker
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    ports:
+      - "3306:3306"
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.3
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
