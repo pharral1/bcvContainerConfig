@@ -19,6 +19,9 @@ COPY ./BCV_Database /opt/app/BCV_Database
 
 #Populate the database and create the APIUser
 WORKDIR /opt/app/BCV_Database
+
+RUN cat my.cnf > /etc/mysql/my.cnf
+
 RUN service mysql start ; mysql < BCV_createAll.sql; mysql < BCV_loadAll.sql; mysql < BCV_createAPIUser.sql
 
 EXPOSE 3306
