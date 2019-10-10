@@ -4,23 +4,21 @@ services:
     build: ./db
     container_name: db
     environment:
-      - MYSQL_HOST=localhost
       - MYSQL_PORT=3306
-      - MYSQL_ROOT_HOST=172.17.0.1
       - MYSQL_ROOT_PASSWORD=docker
       - MYSQL_DATABASE=baltimoreCrimeData
       - MYSQL_USER=APIUser
       - MYSQL_PASSWORD=DjangoRestAPIUser1!
     ports:
       - "3306:3306"
-#  rest-api:
-#    build: ./django
-#    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
-#    ports:
-#      - "8000:8000"
-#    depends_on:
-#      - db
-#    links:
-#      - db
-
+  rest-api:
+    build: ./django
+    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db
+    restart: on-failure
 
