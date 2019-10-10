@@ -1,32 +1,26 @@
 version: '3'
 services:
   db:
-    build: ./mysql
-    command: service mysql start
+    build: ./db
+    container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD: docker
-      MYSQL_DATABASE: docker
-      MYSQL_USER: docker
-      MYSQL_PASSWORD: docker
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_HOST=172.17.0.1
+      - MYSQL_ROOT_PASSWORD=docker
+      - MYSQL_DATABASE=baltimoreCrimeData
+      - MYSQL_USER=APIUser
+      - MYSQL_PASSWORD=DjangoRestAPIUser1!
     ports:
       - "3306:3306"
-    networks:
-      static-network:
-        ipv4_address: 172.20.128.3
-  rest-api:
-    build: ./django
-    command: bash -c "sleep 3 && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
-    ports:
-      - "8000:8000"
-    links:
-      - db:db
-    depends_on:
-      - db
-    networks:
-      static-network:
-        ipv4_address: 172.20.128.2
-networks:
-  static-network:
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+#  rest-api:
+#    build: ./django
+#    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+#    ports:
+#      - "8000:8000"
+#    depends_on:
+#      - db
+#    links:
+#      - db
+
+

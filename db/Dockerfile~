@@ -1,0 +1,7 @@
+FROM mysql:latest
+
+#Store all config files in mysql entrypoiny
+COPY ./BCV_Database/dataDump.sql /docker-entrypoint-initdb.d
+COPY ./BCV_Database/BCV_createAPIUser.sql /docker-entrypoint-initdb.d
+
+EXPOSE 3306
