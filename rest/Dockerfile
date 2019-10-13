@@ -23,6 +23,10 @@ RUN apt-get install libmysqlclient-dev -y
 RUN apt-get install mysql-client -y
 RUN python3 -m pip install -r requirements.txt
 
+RUN apt-get install git -y
+RUN apt-get install nano -y
+
+
 #Migrate the server
 EXPOSE 8000
 WORKDIR /opt/app/crimeRestAPI2.0
