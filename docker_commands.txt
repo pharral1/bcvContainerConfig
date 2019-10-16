@@ -5,3 +5,4 @@ docker exec -it [container id] <command> -> run command in running container, ie
 docker-compose build -> build images from docker-compose.yaml file
 docker-compose up -> spin up containers from built images from docker-compose.yaml file
 docker-compose down -> spin down containers from built images
+docker logs -f [container id] -> get logs of container, like tail -f
