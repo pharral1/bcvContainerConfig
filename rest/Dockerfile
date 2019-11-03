@@ -24,7 +24,7 @@ RUN apt-get install mysql-client -y
 RUN python3 -m pip install -r requirements.txt
 
 RUN apt-get install git -y
-RUN apt-get install emacs -y
+RUN apt-get install emacs -y --fix-missing
 
 
 #Migrate the server

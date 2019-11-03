@@ -29,3 +29,9 @@ Inside container run these commands:
 
 You will now be able to access the swagger of the django in your browser at http://127.0.0.1:8000/ or localhost:8000
 Can use this endpoint to gather data from the database stored in the container
+
+
+New commands:
+
+    Connect to running mysql instance in docker:
+    	    mysql -h 127.0.0.1 -P 3306 -u APIUser -p
