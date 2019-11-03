@@ -1,0 +1,13 @@
+//Ubuntu needs:
+mysql-connector-python
+//python3 -m pip install mysql-connector-python
+
+//set auth_plugin to:
+mysql_native_plugin
+//in config dict in getInput
+ 
+//run create all on docker mysql database to add procedures to db
+mysql -h 127.0.0.1 -P 3306 -u root -p < BCV_createAll.sql
+
+//add input to database
+python3 getInput.py

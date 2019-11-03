@@ -24,6 +24,7 @@ RUN apt-get install mysql-client -y
 RUN python3 -m pip install -r requirements.txt
 
 RUN apt-get install git -y
+RUN git config --global user.email "django@docker"
 RUN apt-get install emacs -y --fix-missing
 
 
