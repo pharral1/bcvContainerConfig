@@ -14,9 +14,6 @@ WORKDIR /opt/app
 
 #store requirements file, must exist in the Dockerfile directory
 COPY ./requirements.txt /opt/app
-RUN mkdir ./crimeRestAPI2.0
-COPY ./crimeRestAPI2.0 /opt/app/crimeRestAPI2.0
-
 
 #install all python packages from requirements
 RUN apt-get install libmysqlclient-dev -y
@@ -27,6 +24,8 @@ RUN apt-get install git -y
 RUN git config --global user.email "django@docker"
 RUN apt-get install emacs -y --fix-missing
 
+RUN mkdir ./crimeRestAPI2.0
+COPY ./crimeRestAPI2.0 /opt/app/crimeRestAPI2.0
 
 #Migrate the server
 EXPOSE 8000
