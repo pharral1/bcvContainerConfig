@@ -28,5 +28,5 @@ RUN mkdir ./crimeRestAPI2.0
 COPY ./crimeRestAPI2.0 /opt/app/crimeRestAPI2.0
 
 #Migrate the server
-EXPOSE 8000
+EXPOSE 80
 WORKDIR /opt/app/crimeRestAPI2.0
