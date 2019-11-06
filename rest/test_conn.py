@@ -7,7 +7,7 @@ curr_try = 0
 
 while(True):
     try:
-        requests.get("http://localhost:8000")
+        requests.get("http://localhost:80")
         print("API Ready")
         break
     except:
