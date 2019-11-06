@@ -1,12 +1,19 @@
 import requests
 import time
+import sys
+
+max_retries = 300
+curr_try = 0
 
 while(True):
     try:
         requests.get("http://localhost:8000")
-        print("*" * 100)
         print("API Ready")
-        print("*" * 100)
         break
     except:
-        time.sleep(1)
+        if max_retries > curr_try:
+            time.sleep(1)
+            curr_try += 1
+        else:
+            print("Calling timeout on Rest API connection, check the docker logs")
+            sys.exit(-1)
