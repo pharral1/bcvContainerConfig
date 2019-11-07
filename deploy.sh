@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -ex
+sudo service mysql stop
+set -e
 
 echo "Spinning up database and REST API docker containers"
 docker-compose up -d
