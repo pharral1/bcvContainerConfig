@@ -1,5 +1,11 @@
 version: '3'
 services:
+  app:
+    build: ./app
+    container_name: app
+    ports:
+      - "3000:3000"
+    command: bash -c "npm start"
   db:
     build: ./db
     container_name: db
@@ -14,6 +20,7 @@ services:
   
   rest:
     build: ./rest
+    container_name: rest
     command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:80"
     ports:
       - "80:80"
