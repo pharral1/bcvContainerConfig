@@ -3,6 +3,6 @@ git pull origin containerConfig
 cd ../../db/LoadScript
 git pull origin containerBranch
 cd ../../app/react
-git pull origin master
+git pull origin development-branch
 cd ../..
 docker-compose build
