@@ -18,6 +18,7 @@ COPY ./requirements.txt /opt/app
 #install all python packages from requirements
 RUN apt-get install libmysqlclient-dev -y
 RUN apt-get install mysql-client -y
+RUN apt-get install libssl-dev
 RUN python3 -m pip install -r requirements.txt
 
 RUN apt-get install git -y
