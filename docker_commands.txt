@@ -1,8 +1,0 @@
-docker ps -a -> print all exited and running containers
-docker images -> print all images
-docker container [container id] stop -> end background run of command
-docker exec -it [container id] <command> -> run command in running container, ie bash to get shell into
-docker-compose build -> build images from docker-compose.yaml file
-docker-compose up -> spin up containers from built images from docker-compose.yaml file
-docker-compose down -> spin down containers from built images
-docker logs -f [container id] -> get logs of container, like tail -f
